@@ -12,13 +12,11 @@ app = Flask(__name__)
 ## route for home page
 @app.route('/')
 def home():
-    return render_template('index.html')
+    return render_template('home.html')
 
-@app.route('/predict', methods=['GET','POST'])
+@app.route('/predict', methods=['POST'])
 def predict_datapoint(): 
-    if request.method == 'GET':
-        return render_template('home.html')
-    else:
+    
         data=CustomData(
             gender=request.form.get('gender'),
             race_ethnicity=request.form.get('race_ethnicity'),
